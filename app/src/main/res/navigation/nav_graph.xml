@@ -3,27 +3,65 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/JokeFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.itc.jokesapp.ui.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/JokeFragment"
+        android:name="com.itc.jokesapp.ui.JokeFragment"
+        android:label="@string/joke_fragment_label"
+        tools:layout="@layout/fragment_joke">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_RandomJokeFragment"
+            app:destination="@id/RandomJokeFragment" />
+
+        <action
+            android:id="@+id/action_JokeFragment"
+            app:destination="@id/JokeFragment" />
+
+        <action
+            android:id="@+id/action_CustomJokeFragment"
+            app:destination="@id/CustomJokeFragment" />
+
     </fragment>
 
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.itc.jokesapp.ui.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/RandomJokeFragment"
+        android:name="com.itc.jokesapp.ui.RandomJokeFragment"
+        android:label="@string/random_joke_fragment_label"
+        tools:layout="@layout/fragment_random_joke">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_RandomJokeFragment"
+            app:destination="@id/RandomJokeFragment" />
+
+        <action
+            android:id="@+id/action_JokeFragment"
+            app:destination="@id/JokeFragment" />
+
+        <action
+            android:id="@+id/action_CustomJokeFragment"
+            app:destination="@id/CustomJokeFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/CustomJokeFragment"
+        android:name="com.itc.jokesapp.ui.CustomJokeFragment"
+        android:label="@string/custom_joke_fragment_label"
+        tools:layout="@layout/fragment_random_joke">
+
+        <action
+            android:id="@+id/action_RandomJokeFragment"
+            app:destination="@id/RandomJokeFragment" />
+
+        <action
+            android:id="@+id/action_JokeFragment"
+            app:destination="@id/JokeFragment" />
+
+        <action
+            android:id="@+id/action_CustomJokeFragment"
+            app:destination="@id/CustomJokeFragment" />
+
     </fragment>
 </navigation>

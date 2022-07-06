@@ -1,12 +1,19 @@
 <resources>
     <string name="app_name">JokesApp</string>
-    <string name="action_settings">Settings</string>
+    <string name="joke_frag">Jokes</string>
+    <string name="rand_joke_frag">Random Jokes</string>
+    <string name="custom_joke_frag">Custom Jokes</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="joke_fragment_label">Joke Fragment</string>
+    <string name="random_joke_fragment_label">Random Joke Fragment</string>
+    <string name="custom_joke_fragment_label">Custom Joke Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lastName">Enter Last Name</string>
+    <string name="first_name">Enter First Name</string>
 </resources>

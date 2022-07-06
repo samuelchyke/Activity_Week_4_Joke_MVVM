@@ -3,14 +3,15 @@ package com.itc.jokesapp.repository
 import com.itc.jokesapp.api.JokeServiceApi
 import com.itc.jokesapp.model.JokesResponse
 import retrofit2.Response
+import javax.inject.Inject
 
 interface JokesRepo {
    suspend fun getJokes(): Response<JokesResponse>
    suspend fun getRandomJokes(): Response<JokesResponse>
-   suspend fun getCustomJoke(): Response<JokesResponse>
+   suspend fun getCustomJoke(firstName:String?, lastName:String?): Response<JokesResponse>
 }
 
-class JokesRepoImpl (
+class JokesRepoImpl @Inject constructor (
    private val jokeServiceApi: JokeServiceApi
         ) : JokesRepo{
 
@@ -22,8 +23,11 @@ class JokesRepoImpl (
       return jokeServiceApi.getRandomJokes()
    }
 
-   override suspend fun getCustomJoke(): Response<JokesResponse> {
-      return jokeServiceApi.getCustomJoke()
+   override suspend fun getCustomJoke(
+      firstName: String?,
+      lastName: String?
+   ): Response<JokesResponse> {
+      return jokeServiceApi.getCustomJoke(firstName, lastName)
    }
 
 }

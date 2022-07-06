@@ -4,31 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.itc.jokesapp.R
 import com.itc.jokesapp.adapter.JokeAdapter
-import com.itc.jokesapp.databinding.FragmentFirstBinding
+import com.itc.jokesapp.databinding.FragmentJokeBinding
 import com.itc.jokesapp.util.UIState
-import dagger.hilt.android.AndroidEntryPoint
 
-
-class FirstFragment : BaseFragment() {
+class JokeFragment : BaseFragment() {
 
     private val jokesAdapter by lazy{
-        JokeAdapter(){
-
-        }
+        JokeAdapter()
     }
 
     private val binding by lazy {
-        FragmentFirstBinding.inflate(layoutInflater)
-    }
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+        FragmentJokeBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -38,7 +26,7 @@ class FirstFragment : BaseFragment() {
 
         initRecyclerView()
         observeData()
-
+//
         return binding.root
     }
 
@@ -63,7 +51,7 @@ class FirstFragment : BaseFragment() {
                     // Update adapter
 //                    binding.jokesRecVw.visibility = View.VISIBLE
 
-                    jokesAdapter.setJokes(state.response.jokes ?: emptyList())
+                    jokesAdapter.setJokes(state.response.jokes ?: mutableListOf())
                 }
 
                 is UIState.ERROR -> {
@@ -83,15 +71,10 @@ class FirstFragment : BaseFragment() {
         jokesViewModel.getJokes()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        this.binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.let {
+            null
+        }
     }
 }

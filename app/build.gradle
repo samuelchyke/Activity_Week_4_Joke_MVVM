@@ -4,10 +4,10 @@ plugins {
 
     id 'kotlin-android'
     id 'kotlin-android-extensions'
-    id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
-    id 'dagger.hilt.android.plugin'
 
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -76,10 +76,6 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.4.2'
     kapt "androidx.room:room-compiler:2.4.2"
 
-    // Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
-
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
@@ -92,8 +88,9 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.42'
 
     // Hilt
-    implementation "com.google.dagger:hilt-android:2.42"
-    kapt "com.google.dagger:hilt-compiler:2.38.1"
+    implementation("com.google.dagger:hilt-android:2.42")
+    kapt("com.google.dagger:hilt-android-compiler:2.42")
+
 
     // RxJava2 Dependencies
     implementation 'androidx.room:room-rxjava2:2.4.2'
@@ -116,4 +113,8 @@ dependencies {
     // viewModelScope:
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0-rc02'
 
+}
+
+kapt {
+    correctErrorTypes = true
 }

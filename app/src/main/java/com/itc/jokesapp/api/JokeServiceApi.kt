@@ -3,6 +3,7 @@ package com.itc.jokesapp.api
 import com.itc.jokesapp.model.JokesResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -16,16 +17,16 @@ interface JokeServiceApi {
 
     @GET(CUSTOM_JOKE_PATH)
     suspend fun getCustomJoke(
-        @Query("firstName") firstName: String? = null,
-        @Query("lastName") lastName: String? = null
+        @Query("firstName") firstName: String? ,
+        @Query("lastName") lastName: String?
     ):Response<JokesResponse>
 
     companion object{
 
-        const val BASE_URL = "https://www.icndb.com/"
+        const val BASE_URL = "https://api.icndb.com/"
         private const val JOKES_PATH = "jokes"
         private const val RANDOM_JOKES_PATH = "jokes/random/50"
-        private const val CUSTOM_JOKE_PATH = "jokes/random"
+        private const val CUSTOM_JOKE_PATH = "jokes/random/1"
 
     }
 

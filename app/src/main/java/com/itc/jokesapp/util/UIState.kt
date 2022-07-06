@@ -1,5 +1,6 @@
 package com.itc.jokesapp.util
 
+import com.itc.jokesapp.model.Jokes
 import com.itc.jokesapp.model.JokesResponse
 
 sealed class UIState{

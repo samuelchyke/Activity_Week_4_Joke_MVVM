@@ -9,10 +9,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.navigation.fragment.findNavController
 import com.itc.jokesapp.R
 import com.itc.jokesapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -33,11 +33,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -51,7 +46,9 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.joke_frag -> nav()
+            R.id.rand_joke_frag -> nav2()
+            R.id.custom_joke_frag -> nav3()
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -60,5 +57,18 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    private fun nav(): Boolean {
+        findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_JokeFragment)
+        return true
+    }
+    private fun nav2(): Boolean {
+        findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_RandomJokeFragment)
+        return true
+    }
+    private fun nav3(): Boolean {
+        findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.action_CustomJokeFragment)
+        return true
     }
 }

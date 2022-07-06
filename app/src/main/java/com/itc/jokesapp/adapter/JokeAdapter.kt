@@ -7,12 +7,11 @@ import com.itc.jokesapp.databinding.JokeCardrowViewBinding
 import com.itc.jokesapp.model.Jokes
 
 class JokeAdapter(
-    private val mJokeList: MutableList<Jokes> = mutableListOf(),
-    private val onJokeClicked: (Int?) -> Unit
+    private val mJokeList: MutableList<Jokes> = mutableListOf()
 ) : RecyclerView.Adapter<MyViewHolder>(
 ) {
 
-    fun setJokes(jokes: List<Jokes>) {
+    fun setJokes(jokes: MutableList<Jokes>) {
         mJokeList.clear()
         mJokeList.addAll(jokes)
         notifyDataSetChanged()
@@ -28,7 +27,7 @@ class JokeAdapter(
         )
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) =
-        holder.bind(mJokeList[position], onJokeClicked)
+        holder.bind(mJokeList[position])
 
     override fun getItemCount(): Int  = mJokeList.size
 
@@ -38,13 +37,9 @@ class MyViewHolder (
     private val binding: JokeCardrowViewBinding
 ) : RecyclerView.ViewHolder(binding.root){
 
-    fun bind(joke: Jokes, onJokeClicked: (Int?) -> Unit)
+    fun bind(joke: Jokes)
     {
         binding.jokeTxtVw.text = joke.joke
-
-        itemView.setOnClickListener{
-            onJokeClicked(joke.id)
-        }
     }
 
 }

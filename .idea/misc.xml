@@ -3,12 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout-v28/joke_cardrow_view.xml" value="0.1" />
         <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/activity_main.xml" value="0.42552083333333335" />
-        <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/content_main.xml" value="0.42552083333333335" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/fragment_custom_joke.xml" value="0.1" />
         <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/fragment_first.xml" value="0.1" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/fragment_joke.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/fragment_random_joke.xml" value="0.21944444444444444" />
         <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/fragment_second.xml" value="0.42552083333333335" />
         <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/joke_cardrow_view.xml" value="0.1" />
         <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/layout/music_view.xml" value="0.1" />
+        <entry key="..\:/Users/Samuel/AndroidStudioProjects/JokesApp/app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>
     </option>
   </component>

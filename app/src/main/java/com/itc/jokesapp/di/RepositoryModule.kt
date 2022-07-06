@@ -1,4 +1,4 @@
-package com.itc.jokesapp.di.module
+package com.itc.jokesapp.di
 
 import androidx.lifecycle.ViewModel
 import com.itc.jokesapp.repository.JokesRepo

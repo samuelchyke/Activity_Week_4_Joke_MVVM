@@ -31,12 +31,13 @@ class JokesViewModel @Inject constructor(
                         withContext(Dispatchers.Main) {
                             //MAIN THREAD
                             //UPDATE UI
-
-                            //worker thread
-                            _jokes.postValue(UIState.SUCCESS(it))
+                            withContext(Dispatchers.IO){
+                                //worker thread
+                                _jokes.postValue(UIState.SUCCESS(it))
+                            }
 
                             //main thread
-                            //_characters.value = it
+//                            _jokes.value = UIState.SUCCESS(it)
 
                         }
 
@@ -98,7 +99,43 @@ class JokesViewModel @Inject constructor(
 
     }
 
-    override fun onCleared() {
+    fun getCustomJokes(firstName:String, lastName:String) {
+        //Global
+        CoroutineScope(Dispatchers.IO).launch {
+            // WORKER THREAD
+            try {
+                val response = jokesRepo.getCustomJoke(firstName,lastName)
+                if (response.isSuccessful) {
+                    response.body()?.let {
+//                        _jokes.postValue(UIState.SUCCESS(it))
+                        withContext(Dispatchers.Main) {
+                            //MAIN THREAD
+                            //UPDATE UI
+                            //main thread
+                            _jokes.value = UIState.SUCCESS(it)
+
+                        }
+
+                    } ?: throw Exception("Data Null")
+                } else {
+                    throw Exception(response.errorBody()?.string())
+                }
+
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    //MAIN THREAD
+                    //UPDATE UI
+                    _jokes.postValue(UIState.ERROR(e))
+
+                }
+
+            }
+            val response = jokesRepo.getCustomJoke(firstName,lastName)
+        }
+
+    }
+
+    public override fun onCleared() {
         super.onCleared()
     }
 }
