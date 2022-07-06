@@ -30,8 +30,18 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+        setUpActionBarNavController()
+    }
+
+    private fun setUpActionBarNavController() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.JokeFragment,
+                R.id.CustomJokeFragment,
+                R.id.RandomJokeFragment
+            )
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
